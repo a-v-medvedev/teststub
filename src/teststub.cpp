@@ -124,6 +124,7 @@ int main(int argc, char **argv)
     parser.add<std::string>("output");
     parser.add<std::string>("mode", "always");
     parser.add<std::string>("code", "P");
+    parser.add<std::string>("generate", "");
     dbg.add_parser_options(parser);    
     if (!parser.parse())
         return 1;
@@ -162,6 +163,13 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     dbg.init_output(rank);
     //-- /dbg --
+
+    auto filename = parser.get<std::string>("generate");
+    if (!filename.empty()) {
+        FILE *fp = fopen(filename.c_str(), "w+");
+        fprintf(fp, "teststub\n");
+        fclose(fp);
+    }
 
     try {
         switch (code) {
