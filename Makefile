@@ -22,8 +22,8 @@ endif
 CXXFLAGS += -I$(THIRDPARTY)/yaml-cpp.bin/include -I$(THIRDPARTY)/argsparser.bin
 CXXFLAGS += -Isrc -Isrc/dbg
 
-LDFLAGS += -L$(THIRDPARTY)/yaml-cpp.bin/lib -Wl,-rpath -Wl,$(THIRDPARTY)/yaml-cpp.bin/lib -lyaml-cpp
-LDFLAGS += -L$(THIRDPARTY)/argsparser.bin -Wl,-rpath -Wl,$(THIRDPARTY)/argsparser.bin -largsparser
+LDFLAGS +=  $(THIRDPARTY)/argsparser.bin/libargsparser.a
+LDFLAGS +=  $(THIRDPARTY)/yaml-cpp.bin/lib/libyaml-cpp.a
 LDFLAGS += -ldl
 
 all: $(EXE)
