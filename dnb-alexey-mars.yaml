@@ -3,4 +3,5 @@ psubmit:
   batch_script: direct
   ppn: 1
   nnodes: 1
+  target_bin: ./teststub
 
