@@ -1,0 +1,6 @@
+psubmit:
+  mpi_script: generic
+  batch_script: direct
+  ppn: 1
+  nnodes: 1
+
